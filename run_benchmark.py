@@ -9,6 +9,8 @@ cases = [
     ("day3_part2", "day3_part2.py", "tasks/day3/expected_part2.txt"),
     ("day4_part1", "day4_part1.py", "tasks/day4/expected_part1.txt"),
     ("day4_part2", "day4_part2.py", "tasks/day4/expected_part2.txt"),
+    ("day5_part1", "day5_part1.py", "tasks/day5/expected_part1.txt"),
+    ("day5_part2", "day5_part2.py", "tasks/day5/expected_part2.txt"),
 ]
 
 models = ["gpt", "claude", "gemini"]
