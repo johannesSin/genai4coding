@@ -51,17 +51,14 @@ day9_part1,gpt,correct,4746238001,,4746238001
 day9_part1,claude,wrong_output,4746100212,,4746238001
 day9_part1,gemini,correct,4746238001,,4746238001
 day9_part2,gpt,correct,1552139370,,1552139370
-day9_part2,claude,missing_dependency,,"Traceback (most recent call last):
-  File ""/mnt/c/Users/johan/BAC_ki_codegenerierung/solutions/claude/day9_part2.py"", line 1, in <module>
-    from shapely.geometry import Polygon, box
-ModuleNotFoundError: No module named 'shapely'",1552139370
+day9_part2,claude,timeout,,,1552139370
 day9_part2,gemini,timeout,,,1552139370
-day10_part1,gpt,missing_solution_file,,,
-day10_part1,claude,missing_solution_file,,,
-day10_part1,gemini,missing_solution_file,,,
-day10_part2,gpt,missing_solution_file,,,
-day10_part2,claude,missing_solution_file,,,
-day10_part2,gemini,missing_solution_file,,,
+day10_part1,gpt,correct,428,,428
+day10_part1,claude,correct,428,,428
+day10_part1,gemini,correct,428,,428
+day10_part2,gpt,timeout,,,16613
+day10_part2,claude,correct,16613,,16613
+day10_part2,gemini,wrong_output,16597,,16613
 day11_part1,gpt,missing_solution_file,,,
 day11_part1,claude,missing_solution_file,,,
 day11_part1,gemini,missing_solution_file,,,
