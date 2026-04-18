@@ -27,7 +27,6 @@ cases = [
     ("day11_part1", "day11_part1.py", "tasks/day11/expected_part1.txt"),
     ("day11_part2", "day11_part2.py", "tasks/day11/expected_part2.txt"),
     ("day12_part1", "day12_part1.py", "tasks/day12/expected_part1.txt"),
-    ("day12_part2", "day12_part2.py", "tasks/day12/expected_part2.txt"),
 ]
 
 models = ["gpt", "claude", "gemini"]

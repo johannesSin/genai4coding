@@ -65,9 +65,12 @@ day11_part1,gemini,correct,470,,470
 day11_part2,gpt,correct,384151614084875,,384151614084875
 day11_part2,claude,correct,384151614084875,,384151614084875
 day11_part2,gemini,correct,384151614084875,,384151614084875
-day12_part1,gpt,missing_solution_file,,,
-day12_part1,claude,missing_solution_file,,,
-day12_part1,gemini,missing_solution_file,,,
-day12_part2,gpt,missing_solution_file,,,
-day12_part2,claude,missing_solution_file,,,
-day12_part2,gemini,missing_solution_file,,,
+day12_part1,gpt,timeout,,,490
+day12_part1,claude,wrong_output,,,490
+day12_part1,gemini,index_error,,"Traceback (most recent call last):
+  File ""/mnt/c/Users/johan/BAC_ki_codegenerierung/solutions/gemini/day12_part1.py"", line 109, in <module>
+    solve()
+  File ""/mnt/c/Users/johan/BAC_ki_codegenerierung/solutions/gemini/day12_part1.py"", line 89, in solve
+    w, h = int(dims[0]), int(dims[1])
+                             ~~~~^^^
+IndexError: list index out of range",490
