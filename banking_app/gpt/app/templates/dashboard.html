@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="page-header">
+    <h1>Willkommen, {{ user.username }}</h1>
+    <p>Gesamtsaldo: <strong>{{ '%.2f'|format(total_balance) }} €</strong></p>
+</section>
+
+<section class="grid">
+    {% for account in accounts %}
+    <article class="card">
+        <h2>{{ account.name }}</h2>
+        <p><strong>Kontonummer:</strong> {{ account.account_number }}</p>
+        <p><strong>Saldo:</strong> {{ '%.2f'|format(account.balance) }} €</p>
+        <div class="actions">
+            <a class="button secondary" href="/accounts/{{ account.id }}/transactions">Transaktionen</a>
+        </div>
+    </article>
+    {% endfor %}
+</section>
+{% endblock %}

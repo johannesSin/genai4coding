@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="card auth-card">
+    <h1>Registrierung</h1>
+    <p>Erstelle einen neuen Demo-Benutzer für die Banking-Anwendung.</p>
+    {% if error %}<div class="alert error">{{ error }}</div>{% endif %}
+    <form method="post" class="form-grid">
+        <label>Benutzername
+            <input type="text" name="username" value="{{ username or '' }}" required>
+        </label>
+        <label>E-Mail
+            <input type="email" name="email" value="{{ email or '' }}" required>
+        </label>
+        <label>Passwort
+            <input type="password" name="password" required>
+        </label>
+        <button type="submit">Registrieren</button>
+    </form>
+</section>
+{% endblock %}
