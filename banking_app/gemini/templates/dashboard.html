@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard - {{ user.username }}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+</head>
+<body>
+    <header>
+        <h1>Willkommen, {{ user.username }}!</h1>
+        <p>Kontostand: <strong>{{ "%.2f"|format(user.balance) }} €</strong></p>
+    </header>
+
+    <main>
+        <section>
+            <h3>Neue Überweisung</h3>
+            <form action="/transfer/{{ user.id }}" method="post">
+                <input type="text" name="recipient" placeholder="IBAN oder Name des Empfängers" required>
+                <input type="number" step="0.01" name="amount" placeholder="Betrag in €" required>
+                <button type="submit">Überweisung ausführen</button>
+            </form>
+        </section>
+
+        <section>
+            <h3>Transaktionshistorie</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Datum</th>
+                        <th>Empfänger</th>
+                        <th>Betrag</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for tx in user.transactions|sort(attribute='timestamp', reverse=True) %}
+                    <tr>
+                        <td>{{ tx.timestamp.strftime('%d.%m.%Y %H:%M') }}</td>
+                        <td>{{ tx.recipient }}</td>
+                        <td style="color: red;">{{ "%.2f"|format(tx.amount) }} €</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <a href="/">Abmelden</a>
+    </footer>
+</body>
+</html>
