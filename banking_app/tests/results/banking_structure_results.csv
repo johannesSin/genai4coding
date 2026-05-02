@@ -1,0 +1,16 @@
+timestamp,model,check,status
+2026-05-02T11:36:32,gpt,project_folder_exists,correct
+2026-05-02T11:36:32,gpt,requirements_exists,correct
+2026-05-02T11:36:32,gpt,has_multiple_python_files,correct
+2026-05-02T11:36:32,gpt,has_app_directory,correct
+2026-05-02T11:36:32,gpt,has_main_file,correct
+2026-05-02T13:43:33,gemini,project_folder_exists,correct
+2026-05-02T13:43:33,gemini,requirements_exists,correct
+2026-05-02T13:43:33,gemini,has_multiple_python_files,correct
+2026-05-02T13:43:33,gemini,has_app_directory,failed
+2026-05-02T13:43:33,gemini,has_main_file,correct
+2026-05-02T14:16:35,claude,project_folder_exists,correct
+2026-05-02T14:16:35,claude,requirements_exists,correct
+2026-05-02T14:16:35,claude,has_multiple_python_files,correct
+2026-05-02T14:16:35,claude,has_app_directory,failed
+2026-05-02T14:16:35,claude,has_main_file,correct
