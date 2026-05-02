@@ -1,0 +1,6 @@
+timestamp,model,check,status
+2026-05-02T11:36:32,gpt,project_folder_exists,correct
+2026-05-02T11:36:32,gpt,requirements_exists,correct
+2026-05-02T11:36:32,gpt,has_multiple_python_files,correct
+2026-05-02T11:36:32,gpt,has_app_directory,correct
+2026-05-02T11:36:32,gpt,has_main_file,correct
