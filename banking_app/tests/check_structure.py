@@ -26,8 +26,8 @@ check("has_main_file", any(
     for p in ["main.py", "app.py", "app/main.py"]
 ))
 
-os.makedirs("results", exist_ok=True)
-csv_path = "results/banking_structure_results.csv"
+os.makedirs("banking_app/results", exist_ok=True)
+csv_path = "banking_app/results/banking_structure_results.csv"
 exists = os.path.exists(csv_path)
 
 with open(csv_path, "a", newline="", encoding="utf-8") as f:

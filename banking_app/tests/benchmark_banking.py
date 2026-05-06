@@ -140,8 +140,8 @@ if __name__ == "__main__":
 
     print(f"\nResult: {passed}/{total} checks passed")
 
-    os.makedirs("results", exist_ok=True)
-    csv_path = "results/banking_benchmark_results.csv"
+    os.makedirs("banking_app/results", exist_ok=True)
+    csv_path = "banking_app/results/banking_benchmark_results.csv"
     file_exists = os.path.exists(csv_path)
 
     with open(csv_path, "a", newline="", encoding="utf-8") as f:

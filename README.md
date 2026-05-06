@@ -8,14 +8,14 @@ Neuevaluierung der Codegenerierungsfähigkeiten moderner generativer KI-Systeme 
 
 ## Teil 1: Advent of Code Benchmark
 
-Im ersten Teil der Arbeit werden generative KI-Systeme anhand von Aufgaben aus **Advent of Code 2025 (Tage 1–12)** evaluiert.
+Im ersten Teil der Arbeit werden generative KI-Systeme anhand von Aufgaben aus **Advent of Code 2025 (Tage 1–12)** evaluiert. 
 
 ### Vorgehen
 
 * Für jeden Tag werden **Part 1 und Part 2** getrennt gelöst
 * Einheitlicher Prompt für alle Modelle
 * Einheitliche Programmiersprache (Python)
-* Automatische Ausführung und Bewertung
+* Automatische Ausführung und Bewertung mittels Benchmark-Skript
 
 ### Modelle
 
@@ -50,48 +50,82 @@ Entwicklung einer prototypischen Internet-Banking-Webanwendung mit:
 * FastAPI (Backend)
 * SQLite (Datenbank)
 
-### Fokus
+### Evaluation
 
-* Vollständigkeit der Anwendung
-* Codequalität und Struktur
-* Funktionsfähigkeit
-* Sicherheitsaspekte
+Die generierten Anwendungen werden automatisiert getestet anhand von:
+
+* Funktionale Vollständigkeit (Register, Login, Dashboard, Transfer)
+* Korrektheit der implementierten Funktionen
+* Sicherheitsaspekte (Authentifizierung, Eingabevalidierung, Zugriffsschutz)
+* Stabilität der Anwendung (Startfähigkeit, Fehlerverhalten)
+
+Zusätzlich erfolgt eine strukturelle Analyse:
+
+* Modularität und Projektstruktur
+* Vorhandensein relevanter Komponenten (z. B. Datenbank, Routen, Templates)
 
 ---
 
 ## Projektstruktur
 
 ```text
-tasks/         # Advent of Code: Input, Expected Outputs, Prompts
-solutions/     # Generierter Code pro Modell
-results/       # Benchmark-Ergebnisse (CSV)
-banking_app/   # Generierte Banking-Anwendung pro Modell
-run_benchmark.py
+aoc/
+├── tasks/          # Input, Expected Outputs, Prompts
+├── solutions/      # Generierter Code pro Modell
+├── results/        # Benchmark-Ergebnisse
+└── run_benchmark.py
+
+banking_app/
+├── gpt/
+├── claude/
+├── gemini/
+├── prompt/
+├── tests/          # Automatisierte Funktionstests
+└── results/        # Gesamt-Ergebnisse (CSV)
+
+README.md
 ```
 
 ---
 
 ## Methodik
 
-* Einheitlicher Prompt pro Aufgabe
-* Reproduzierbare Ausführung
-* Automatische Benchmark-Pipeline
+* Einheitliche Prompts für alle Modelle
+* Reproduzierbare Testumgebung
+* Automatisierte Benchmark-Pipeline
 * Vergleich zwischen mehreren KI-Systemen
+* Kombination aus funktionalen Tests und struktureller Analyse
 
 ---
 
 ## Ausführung
 
+### Advent of Code Benchmark
+
 ```bash
+cd aoc
 python3 run_benchmark.py
+```
+
+### Banking App Benchmark
+
+```bash
+python3 banking_app/tests/benchmark_banking.py <model>
+```
+
+Beispiel:
+
+```bash
+python3 banking_app/tests/benchmark_banking.py gpt
 ```
 
 ---
 
 ## Ergebnisse
 
-Werden automatisch gespeichert in:
+Die Ergebnisse werden automatisch gespeichert in:
 
 ```text
-results/benchmark_results.csv
+banking_app/results/banking_structure_results.csv
+banking_app/results/banking_benchmark_results.csv
 ```
