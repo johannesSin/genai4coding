@@ -1,0 +1,12 @@
+test,claude,gemini,gpt
+App starts / docs reachable,100.0,100.0,100.0
+Dashboard route,100.0,0.0,100.0
+Invalid login rejected,0.0,100.0,100.0
+Login form submit,0.0,100.0,100.0
+Login page,100.0,0.0,0.0
+Negative transfer handled,0.0,0.0,0.0
+Register form submit,0.0,0.0,0.0
+Register page,100.0,0.0,100.0
+SQL injection login handled,0.0,100.0,100.0
+Transfer page,100.0,0.0,100.0
+Transfer without login blocked,0.0,0.0,0.0

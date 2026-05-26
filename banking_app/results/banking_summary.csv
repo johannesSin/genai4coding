@@ -1,0 +1,4 @@
+model,correct,failed,total,success_rate
+claude,5,6,11,45.45
+gemini,4,7,11,36.36
+gpt,7,3,10,70.0
