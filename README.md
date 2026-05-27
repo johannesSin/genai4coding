@@ -1,5 +1,5 @@
 # GenAI4Coding
-Evaluierung moderner Large Language Models anhand algorithmischer Benchmarks und Webanwendungen
+Evaluierung moderner Large Language Models anhand algorithmischer Benchmarks und Webanwendungen.
 
 Dieses Repository enthält sämtliche Benchmarks, Analyse-Skripte, generierten Lösungen und Auswertungen der Bachelorarbeit „GenAI4Coding“.
 
@@ -142,3 +142,7 @@ python3 banking_app/results/analyze_banking_results.py
 ## Hinweis
 
 Dieses Repository wurde im Rahmen einer Bachelorarbeit an der Paris-Lodron-Universität Salzburg erstellt.
+
+## License
+
+This project is licensed under the MIT License.
