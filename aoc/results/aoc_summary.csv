@@ -1,0 +1,4 @@
+model,correct,index_error,timeout,wrong_output,total,success_rate
+claude,20,0,2,1,23,86.96
+gemini,20,1,1,1,23,86.96
+gpt,21,0,2,0,23,91.3
