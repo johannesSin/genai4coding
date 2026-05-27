@@ -9,7 +9,7 @@ if not CSV_PATH.exists():
 
 df = pd.read_csv(CSV_PATH)
 
-print("\n=== Advent of Code Evaluation ===\n")
+print("\n=== Advent-of-Code-Auswertung ===\n")
 
 summary = (
     df.groupby(["model", "status"])
@@ -19,34 +19,34 @@ summary = (
 
 print(summary)
 
-summary["total"] = summary.sum(axis=1)
+summary["Gesamt"] = summary.sum(axis=1)
 
 if "correct" not in summary.columns:
     summary["correct"] = 0
 
-summary["success_rate"] = (
-    summary["correct"] / summary["total"] * 100
+summary["Erfolgsrate"] = (
+    summary["correct"] / summary["Gesamt"] * 100
 ).round(2)
 
-print("\n=== Success Rates ===\n")
-print(summary[["correct", "total", "success_rate"]])
+print("\n=== Erfolgsraten ===\n")
+print(summary[["correct", "Gesamt", "Erfolgsrate"]])
 
 summary.to_csv("aoc_summary.csv")
 
-# Diagramm: Correct Solutions
+# Diagramm: Korrekte Lösungen
 plt.figure(figsize=(7, 4))
 summary["correct"].plot(kind="bar")
-plt.ylabel("Correct Solutions")
-plt.xlabel("Model")
+plt.ylabel("Korrekte Lösungen")
+plt.xlabel("Modell")
 plt.tight_layout()
 plt.savefig("aoc_correct_solutions.png")
 plt.close()
 
-# Diagramm: Success Rate
+# Diagramm: Erfolgsrate pro Modell
 plt.figure(figsize=(7, 4))
-summary["success_rate"].plot(kind="bar")
-plt.ylabel("Success Rate (%)")
-plt.xlabel("Model")
+summary["Erfolgsrate"].plot(kind="bar")
+plt.ylabel("Erfolgsrate (%)")
+plt.xlabel("Modell")
 plt.ylim(0, 100)
 plt.tight_layout()
 plt.savefig("aoc_success_rate.png")
@@ -62,21 +62,21 @@ if not error_df.empty:
         .unstack(fill_value=0)
     )
 
-    print("\n=== Error Types ===\n")
+    print("\n=== Fehlertypen ===\n")
     print(error_summary)
 
     error_summary.to_csv("aoc_error_summary.csv")
 
     plt.figure(figsize=(8, 4))
     error_summary.plot(kind="bar", stacked=True)
-    plt.ylabel("Count")
-    plt.xlabel("Model")
+    plt.ylabel("Anzahl")
+    plt.xlabel("Modell")
     plt.tight_layout()
     plt.savefig("aoc_error_types.png")
     plt.close()
 
 # Part 1 vs Part 2
-df["part"] = df["case"].apply(lambda x: "part1" if "part1" in x else "part2")
+df["part"] = df["case"].apply(lambda x: "Part 1" if "part1" in x else "Part 2")
 
 part_summary = (
     df.assign(is_correct=df["status"] == "correct")
@@ -86,15 +86,15 @@ part_summary = (
     * 100
 ).round(2)
 
-print("\n=== Part 1 vs Part 2 Success Rate ===\n")
+print("\n=== Erfolgsrate Part 1 vs. Part 2 ===\n")
 print(part_summary)
 
 part_summary.to_csv("aoc_part_summary.csv")
 
 plt.figure(figsize=(7, 4))
 part_summary.plot(kind="bar")
-plt.ylabel("Success Rate (%)")
-plt.xlabel("Model")
+plt.ylabel("Erfolgsrate (%)")
+plt.xlabel("Modell")
 plt.ylim(0, 100)
 plt.tight_layout()
 plt.savefig("aoc_part1_vs_part2.png")
