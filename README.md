@@ -1,4 +1,7 @@
-# Bachelorarbeit – KI Codegenerierung
+# GenAI4Coding
+Evaluierung moderner Large Language Models anhand algorithmischer Benchmarks und Webanwendungen
+
+Dieses Repository enthält sämtliche Benchmarks, Analyse-Skripte, generierten Lösungen und Auswertungen der Bachelorarbeit „GenAI4Coding“.
 
 ## Ziel
 
@@ -111,6 +114,7 @@ python3 run_benchmark.py
 
 ```bash
 python3 banking_app/tests/benchmark_banking.py <model>
+python3 banking_app/tests/check_structure.py <model>
 ```
 
 Beispiel:
@@ -129,3 +133,12 @@ Die Ergebnisse werden automatisch gespeichert in:
 banking_app/results/banking_structure_results.csv
 banking_app/results/banking_benchmark_results.csv
 ```
+### Ergebnisse automatisch analysieren
+
+```bash
+python3 banking_app/results/analyze_banking_results.py
+```
+
+## Hinweis
+
+Dieses Repository wurde im Rahmen einer Bachelorarbeit an der Paris-Lodron-Universität Salzburg erstellt.
