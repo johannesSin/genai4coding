@@ -1,4 +1,9 @@
 ﻿.venv/
 **/.venv/
 banking_app/**/.venv/
+
+analysis_env/
+
+__pycache__/
+*.pyc
 *.db
