@@ -1,9 +1,23 @@
-﻿.venv/
+﻿# Python virtual environments
+.venv/
 **/.venv/
 banking_app/**/.venv/
-
 analysis_env/
 
+# Python cache files
 __pycache__/
+**/__pycache__/
 *.pyc
+*.pyo
+*.pyd
+
+# Local databases
 *.db
+*.sqlite
+*.sqlite3
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
