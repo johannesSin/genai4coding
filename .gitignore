@@ -1,6 +1,7 @@
 ﻿# Python virtual environments
 .venv/
 **/.venv/
+.venv*/
 banking_app/**/.venv/
 analysis_env/
 
@@ -15,6 +16,9 @@ __pycache__/
 *.db
 *.sqlite
 *.sqlite3
+
+# Archive files
+*.zip
 
 # OS/editor files
 .DS_Store

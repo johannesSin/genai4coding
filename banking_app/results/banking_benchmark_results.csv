@@ -2,7 +2,7 @@ timestamp,model,test,status,display
 2026-05-02T11:34:32,gpt,App starts / docs reachable,correct,✓
 2026-05-02T11:34:32,gpt,Register page,correct,✓
 2026-05-02T11:34:32,gpt,Register form submit,failed,✗
-"2026-05-02T11:34:32,gpt,Login page,error_ConnectionError,""ERROR: ConnectionError - ('Connection aborted.', ConnectionResetError(10054, 'Eine vorhandene Verbindung wurde vom Remotehost geschlossen', None, 10054, None))"""
+2026-05-02T11:34:32,gpt,Login page,error_ConnectionError,"ERROR: ConnectionError - Eine vorhandene Verbindung wurde vom Remotehost geschlossen"
 2026-05-02T11:34:32,gpt,Login form submit,correct,✓
 2026-05-02T11:34:32,gpt,Dashboard route,correct,✓
 2026-05-02T11:34:32,gpt,Transfer page,correct,✓
