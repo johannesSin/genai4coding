@@ -1,4 +1,0 @@
-model,correct,error_ConnectionError,failed,Gesamt,Erfolgsrate
-claude,5,0,6,11,45.45
-gemini,4,0,7,11,36.36
-gpt,7,1,3,11,63.64
