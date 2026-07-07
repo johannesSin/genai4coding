@@ -1,0 +1,12 @@
+test,gpt,claude,gemini
+App starts / docs reachable,correct,correct,correct
+Dashboard route,correct,correct,correct
+Invalid login rejected,correct,correct,correct
+Login form submit,correct,correct,correct
+Login page,correct,correct,correct
+Negative transfer handled,correct,correct,failed
+Register form submit,correct,correct,correct
+Register page,correct,correct,correct
+SQL injection login handled,correct,correct,correct
+Transfer page,correct,correct,correct
+Transfer without login blocked,correct,correct,failed

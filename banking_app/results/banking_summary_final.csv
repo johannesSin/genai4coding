@@ -1,0 +1,4 @@
+model,bestanden,nicht_bestanden,gesamt,erfolgsrate_prozent
+gpt,11,0,11,100.0
+claude,11,0,11,100.0
+gemini,9,2,11,81.82
