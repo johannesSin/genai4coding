@@ -24,7 +24,7 @@ def verify_password(plain_password, hashed_password):
 
 @app.get("/", response_class=HTMLResponse)
 async def index(request: Request):
-    return templates.TemplateResponse("login.html", {"request": request})
+    return templates.TemplateResponse(request=request, name="login.html", context={}, )
 
 @app.post("/register")
 async def register(username: str = Form(...), password: str = Form(...), d: Session = Depends(get_db)):
@@ -46,7 +46,7 @@ async def dashboard(request: Request, user_id: int, d: Session = Depends(get_db)
     user = d.query(db.User).filter(db.User.id == user_id).first()
     if not user:
         return RedirectResponse(url="/")
-    return templates.TemplateResponse("dashboard.html", {"request": request, "user": user})
+    return templates.TemplateResponse(request=request, name="dashboard.html",context={"user": user}, )
 
 @app.post("/transfer/{user_id}")
 async def transfer(user_id: int, recipient: str = Form(...), amount: float = Form(...), d: Session = Depends(get_db)):
