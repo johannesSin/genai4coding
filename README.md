@@ -1,7 +1,8 @@
 # GenAI4Coding
+
 Evaluierung moderner Large Language Models anhand algorithmischer Benchmarks und Webanwendungen.
 
-Dieses Repository enthält sämtliche Benchmarks, Analyse-Skripte, generierten Lösungen und Auswertungen der Bachelorarbeit „GenAI4Coding“.
+Dieses Repository enthält sämtliche Benchmarks, Analyse-Skripte, generierten Lösungen sowie Auswertungen der Bachelorarbeit **„GenAI4Coding“**. Ziel der Arbeit ist die systematische Evaluierung moderner Large Language Models (LLMs) hinsichtlich ihrer Fähigkeiten zur automatisierten Codegenerierung anhand algorithmischer Programmieraufgaben sowie der Entwicklung einer vollständigen Webanwendung.
 
 ## Ziel
 
@@ -11,26 +12,33 @@ Neuevaluierung der Codegenerierungsfähigkeiten moderner generativer KI-Systeme 
 
 ## Teil 1: Advent of Code Benchmark
 
-Im ersten Teil der Arbeit werden generative KI-Systeme anhand von Aufgaben aus **Advent of Code 2025 (Tage 1–12)** evaluiert. 
+Im ersten Teil der Arbeit werden generative KI-Systeme anhand von Aufgaben aus **Advent of Code 2025 (Tage 1–12)** evaluiert.
 
 ### Vorgehen
 
-* Für jeden Tag werden **Part 1 und Part 2** getrennt gelöst
-* Einheitlicher Prompt für alle Modelle
-* Einheitliche Programmiersprache (Python)
-* Automatische Ausführung und Bewertung mittels Benchmark-Skript
+* Für jeden Tag werden **Part 1 und Part 2** getrennt gelöst.
+* Einheitlicher Prompt für alle Modelle.
+* Einheitliche Programmiersprache (Python).
+* Automatische Ausführung und Bewertung mittels Benchmark-Skript.
+* Bei funktional falschen Ergebnissen erfolgt ein einmaliger zweiter Versuch mit unverändertem Prompt.
 
 ### Modelle
 
-* GPT-5.3
-* Claude Sonnet
-* Gemini 3.1 Pro
+Die Evaluation wurde über die offiziellen Weboberflächen der jeweiligen Anbieter durchgeführt.
+
+* OpenAI – GPT-5.3
+* Anthropic – Claude Sonnet
+* Google – Gemini 3.1 Pro
+
+Für alle Modelle wurden identische Prompts und identische Eingabedaten verwendet. Da die Weboberflächen keine Informationen über Modell-Snapshots oder Build-Versionen bereitstellen, beziehen sich die Ergebnisse auf die zum Zeitpunkt der Evaluation verfügbaren Modellversionen.
 
 ### Bewertungskriterien
 
 * Korrektheit der Lösung
-* Auftretende Fehlertypen (z. B. Runtime Errors, falsche Ergebnisse, fehlende Abhängigkeiten)
+* Auftretende Fehlertypen (z. B. Timeouts, Runtime Errors, falsche Ergebnisse)
 * Stabilität und Konsistenz
+* Erfolgsrate
+* Vergleich zwischen Part 1 und Part 2
 
 ---
 
@@ -55,17 +63,26 @@ Entwicklung einer prototypischen Internet-Banking-Webanwendung mit:
 
 ### Evaluation
 
-Die generierten Anwendungen werden automatisiert getestet anhand von:
+Die generierten Anwendungen werden mithilfe eines automatisierten Benchmark-Frameworks evaluiert. Da die Modelle unterschiedliche Softwarearchitekturen erzeugen, erfolgt die technische Kommunikation über modellspezifische Adapter. Die fachlichen Testfälle und Bewertungskriterien bleiben dabei für alle Modelle identisch.
 
-* Funktionale Vollständigkeit (Register, Login, Dashboard, Transfer)
-* Korrektheit der implementierten Funktionen
-* Sicherheitsaspekte (Authentifizierung, Eingabevalidierung, Zugriffsschutz)
-* Stabilität der Anwendung (Startfähigkeit, Fehlerverhalten)
+Der funktionale Benchmark umfasst unter anderem folgende Testfälle:
 
-Zusätzlich erfolgt eine strukturelle Analyse:
+* Erreichbarkeit der Anwendung
+* Registrierung neuer Benutzer
+* Login
+* Zugriff auf geschützte Bereiche
+* Überweisungsfunktion
+* Login mit ungültigen Zugangsdaten
+* Überweisung ohne Authentifizierung
+* Ablehnung negativer Überweisungsbeträge
+* Schutz gegen SQL-Injection
+
+Zusätzlich erfolgt eine strukturelle Analyse der generierten Anwendungen hinsichtlich:
 
 * Modularität und Projektstruktur
 * Vorhandensein relevanter Komponenten (z. B. Datenbank, Routen, Templates)
+* Qualität der Softwarestruktur
+* Manueller Nachbearbeitungsaufwand
 
 ---
 
@@ -73,9 +90,9 @@ Zusätzlich erfolgt eine strukturelle Analyse:
 
 ```text
 aoc/
-├── tasks/          # Input, Expected Outputs, Prompts
+├── tasks/          # Input-Dateien, erwartete Ergebnisse und Prompts
 ├── solutions/      # Generierter Code pro Modell
-├── results/        # Benchmark-Ergebnisse
+├── results/        # Benchmark-Ergebnisse und Analysen
 └── run_benchmark.py
 
 banking_app/
@@ -83,8 +100,8 @@ banking_app/
 ├── claude/
 ├── gemini/
 ├── prompt/
-├── tests/          # Automatisierte Funktionstests
-└── results/        # Gesamt-Ergebnisse (CSV)
+├── tests/          # Automatisierter Banking-Benchmark und Strukturanalyse
+└── results/        # CSV-Ergebnisse und Analyse-Skripte
 
 README.md
 ```
@@ -94,10 +111,15 @@ README.md
 ## Methodik
 
 * Einheitliche Prompts für alle Modelle
+* Identische Eingabedaten für sämtliche Experimente
+* Durchführung über die offiziellen Weboberflächen der Anbieter
 * Reproduzierbare Testumgebung
 * Automatisierte Benchmark-Pipeline
+* Einheitlicher Testkatalog mit elf funktionalen und sicherheitsbezogenen Testfällen
+* Modellspezifische Adapter für unterschiedliche technische Architekturen bei identischen fachlichen Bewertungskriterien
 * Vergleich zwischen mehreren KI-Systemen
-* Kombination aus funktionalen Tests und struktureller Analyse
+* Kombination aus funktionalen Tests, Sicherheitsanalyse und struktureller Bewertung
+* Keine modellabhängigen Prompt-Anpassungen oder Folgeprompts
 
 ---
 
@@ -112,8 +134,15 @@ python3 run_benchmark.py
 
 ### Banking App Benchmark
 
+Funktionaler Benchmark:
+
 ```bash
 python3 banking_app/tests/benchmark_banking.py <model>
+```
+
+Strukturanalyse:
+
+```bash
 python3 banking_app/tests/check_structure.py <model>
 ```
 
@@ -127,21 +156,39 @@ python3 banking_app/tests/benchmark_banking.py gpt
 
 ## Ergebnisse
 
+Die Benchmark-Pipeline protokolliert unter anderem:
+
+* HTTP-Statuscodes
+* Weiterleitungen
+* Testergebnisse
+* Fehlermeldungen
+* Sicherheitsprüfungen
+* Ergebnisse der Strukturanalyse
+
 Die Ergebnisse werden automatisch gespeichert in:
 
 ```text
-banking_app/results/banking_structure_results.csv
 banking_app/results/banking_benchmark_results.csv
+banking_app/results/banking_structure_results.csv
 ```
+
 ### Ergebnisse automatisch analysieren
 
 ```bash
 python3 banking_app/results/analyze_banking_results.py
 ```
 
+Die Analyse erzeugt aggregierte Auswertungen der funktionalen Tests sowie der strukturellen Bewertung und dient als Grundlage für Tabellen, Diagramme und statistische Auswertungen der Bachelorarbeit.
+
+---
+
 ## Hinweis
 
-Dieses Repository wurde im Rahmen einer Bachelorarbeit an der Paris-Lodron-Universität Salzburg erstellt.
+Dieses Repository wurde im Rahmen einer Bachelorarbeit an der **Paris-Lodron-Universität Salzburg** erstellt.
+
+Die Experimente wurden unter reproduzierbaren Bedingungen durchgeführt. Alle Modelle erhielten identische Prompts und identische Eingabedaten. Die Evaluation erfolgte über die offiziellen Weboberflächen von OpenAI, Anthropic und Google. Da diese keine festen Modell-Snapshots oder konfigurierbaren Modellparameter (z. B. Temperatur oder Top-p) bereitstellen, beziehen sich die Ergebnisse auf die zum Zeitpunkt der Experimente verfügbaren Modellversionen.
+
+---
 
 ## License
 
